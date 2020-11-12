@@ -52,7 +52,7 @@ lvchange -an /dev/lvm_pool_data1/lvol001
 lvchange -ay /dev/lvm_pool_data1/lvol001
 ```
 
-### Mounting a MS Fileshare 
+### Mounting a Windows fileshare (tested with RHEL6)
 ```
 Manually:
 mount -t cifs -o username=domain/user //ms-hostname/winfolder$ /mnt/
