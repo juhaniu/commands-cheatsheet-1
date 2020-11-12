@@ -58,4 +58,8 @@ mount -t cifs -o username=domain/user //ms-hostname/winfolder$ /mnt/
 Fstab entry:
 //ms-hostname/winfolder$ /mnt/  cifs  username=domain/user,password=SomePasswords,iocharset=utf8  0  0
 ```
- 
+
+### Find dublicates in fstab
+```
+grep -vE "^#"  /etc/fstab  | awk  '{print $2}' |  uniq -d
+```
