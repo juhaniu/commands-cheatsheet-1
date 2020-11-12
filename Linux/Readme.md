@@ -16,7 +16,8 @@ mkfs.xfs /dev/mapper/es_data
 
 ### LUKS: Resize
 ```
-fdisk /dev/sdc
+parted /dev/sdc mklabel msdos
+parted /dev/sdc mkpart primary 1M 100% set 1 lvm on
 pvcreate /dev/sdc1
 vgextend vg_crypt /dev/sdc1
 lvextend -L +10G  /dev/mapper/vg_crypt-lv_crypt
