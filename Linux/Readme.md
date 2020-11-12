@@ -24,5 +24,17 @@ vgcreate vg_pgsql /dev/sdb1
 lvcreate -L 20G -n lv_pgsql vg_pgsql
 mkfs.xfs /dev/mapper/vg_pgsql-lv_pgsql
 ```
- 
+### Growpart if disk was increased 
+```
+growpart /dev/sda 1
+pvscan
+lvscan
+lvextend -l 100%FREE /dev/mapper/lvm_pool_data1-lvol001
+xfs_growfs
+```
 
+### Deactive/Active LV
+```
+lvchange -an /dev/lvm_pool_data1/lvol001
+lvchange -ay /dev/lvm_pool_data1/lvol001
+```
