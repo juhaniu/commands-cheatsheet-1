@@ -1,6 +1,6 @@
 # Useful Linux commands
 
-## Filesystem
+## Partitions, LVM, LUKS, FS etc
 
 ### Create file that will utilize space from storage
 ```
