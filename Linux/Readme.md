@@ -23,6 +23,6 @@ pvcreate /dev/sdb1
 vgcreate vg_pgsql /dev/sdb1
 lvcreate -L 20G -n lv_pgsql vg_pgsql
 mkfs.xfs /dev/mapper/vg_pgsql-lv_pgsql
-
+```
  
 
