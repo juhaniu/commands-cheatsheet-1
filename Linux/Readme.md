@@ -6,7 +6,6 @@ xfs_mkfile 10240m 10Gigfile
 ```
 
 
-### LUKS stuff
 ### Format the filesystem with LUKS and add extra password to slot1 
 ```
 cryptsetup luksFormat --cipher aes-xts-plain64 /dev/mapper/lvm_pool_data1-lvol001
