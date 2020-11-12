@@ -6,12 +6,25 @@ xfs_mkfile 10240m 10Gigfile
 ```
 
 
-### Format the filesystem with LUKS and add extra password to slot1 
+### LUKS: Format the filesystem with LUKS and add extra password to slot1 
 ```
 cryptsetup luksFormat --cipher aes-xts-plain64 /dev/mapper/lvm_pool_data1-lvol001
 cryptsetup luksOpen /dev/mapper/lvm_pool_data1-lvol001 es_data
 cryptsetup luksAddKey --key-slot 1 /dev/mapper/lvm_pool_data1-lvol001 
 mkfs.xfs /dev/mapper/es_data
+```
+
+### LUKS: Resize
+```
+fdisk /dev/sdc
+pvcreate /dev/sdc1
+vgextend vg_crypt /dev/sdc1
+lvextend -L +10G  /dev/mapper/vg_crypt-lv_crypt
+  Size of logical volume vg_crypt/lv_crypt changed from 11.00 GiB (2816 extents) to 21.00 GiB (5376 extents).
+  Logical volume lv_crypt successfully resized.
+ 
+cryptsetup resize /dev/mapper/vg_crypt-lv_crypt
+resize2fs /dev/mapper/crypted_lvm
 ```
 
 ### Create part/VG/LV/FS 
