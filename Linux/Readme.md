@@ -24,7 +24,7 @@ lvextend -L +10G  /dev/mapper/vg_crypt-lv_crypt
   Logical volume lv_crypt successfully resized.
  
 cryptsetup resize /dev/mapper/vg_crypt-lv_crypt
-resize2fs /dev/mapper/crypted_lvm
+xfs_growfs /dev/mapper/crypted_lvm
 ```
 
 ### Create part/VG/LV/FS 
