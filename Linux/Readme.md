@@ -14,7 +14,7 @@ cryptsetup luksAddKey --key-slot 1 /dev/mapper/lvm_pool_data1-lvol001
 mkfs.xfs /dev/mapper/es_data
 ```
 
-### LUKS: Resize
+### LUKS: Resize VG/LV with LUKS
 ```
 parted /dev/sdc mklabel msdos
 parted /dev/sdc mkpart primary 1M 100% set 1 lvm on
