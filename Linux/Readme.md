@@ -43,7 +43,7 @@ growpart /dev/sda 1
 pvscan
 lvscan
 lvextend -l 100%FREE /dev/mapper/lvm_pool_data1-lvol001
-xfs_growfs
+xfs_growfs /dev/mapper/lvm_pool_data1-lvol001
 ```
 
 ### Deactive/Active LV
