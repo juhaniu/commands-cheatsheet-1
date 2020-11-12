@@ -1,6 +1,6 @@
 # Useful Linux commands
 
-### Create file what will utlize disk
+### Create file that utilize fully the space
 ```
 xfs_mkfile 10240m 10Gigfile
 ```
