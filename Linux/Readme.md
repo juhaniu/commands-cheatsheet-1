@@ -16,8 +16,7 @@ mkfs.xfs /dev/mapper/es_data
 
 ### LUKS: Resize VG/LV with LUKS
 ```
-parted /dev/sdc mklabel msdos
-parted /dev/sdc mkpart primary 1M 100% set 1 lvm on
+parted /dev/sdc mklabel msdos mkpart primary 1M 100% set 1 lvm on
 pvcreate /dev/sdc1
 vgextend vg_crypt /dev/sdc1
 lvextend -L +10G  /dev/mapper/vg_crypt-lv_crypt
@@ -30,8 +29,7 @@ xfs_growfs /dev/mapper/crypted_lvm
 
 ### Create part/VG/LV/FS 
 ```
-parted /dev/sdb mklabel msdos
-parted /dev/sdb mkpart primary 1M 100% set 1 lvm on
+parted /dev/sdb mklabel msdos mkpart primary 1M 100% set 1 lvm on
 pvcreate /dev/sdb1
 vgcreate vg_pgsql /dev/sdb1
 lvcreate -L 20G -n lv_pgsql vg_pgsql
