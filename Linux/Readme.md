@@ -65,3 +65,17 @@ Fstab entry:
 ```
 grep -vE "^#"  /etc/fstab  | awk  '{print $2}' |  uniq -d
 ```
+
+## File modification eg. SED, AWK
+
+### SED: Insert line at very end
+
+```
+# Add tmp as in-memory entry to fstab
+sed -i -e '$atmpfs /tmp tmpfs strictatime,noexec,nodev,nosuid 0 0' /etc/fstab```
+```
+
+### SED: Insert line before match found
+```
+sed -i 's/.*plugins=ifcfg-rh,ibft.*/dns=none\n&/' /etc/NetworkManager/NetworkManager.conf
+```
