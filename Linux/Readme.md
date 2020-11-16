@@ -79,3 +79,12 @@ sed -i -e '$atmpfs /tmp tmpfs strictatime,noexec,nodev,nosuid 0 0' /etc/fstab```
 ```
 sed -i 's/.*plugins=ifcfg-rh,ibft.*/dns=none\n&/' /etc/NetworkManager/NetworkManager.conf
 ```
+
+### AWK: List of all locked accounts (accounts with passwords) :
+```
+awk -F: '{ system("passwd -S " $1)}' /etc/passwd | grep " LK "
+```
+### AWK: List of all unlocked accounts (accounts with passwords) :
+```
+awk -F: '{ system("passwd -S " $1)}' /etc/passwd | grep " PS "
+```
