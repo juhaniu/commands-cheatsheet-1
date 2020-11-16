@@ -66,7 +66,7 @@ Fstab entry:
 grep -vE "^#"  /etc/fstab  | awk  '{print $2}' |  uniq -d
 ```
 
-## File modification eg. SED, AWK
+## Text manipulation with SED, AWK
 
 ### SED: Insert line at very end
 
@@ -79,6 +79,19 @@ sed -i -e '$atmpfs /tmp tmpfs strictatime,noexec,nodev,nosuid 0 0' /etc/fstab```
 ```
 sed -i 's/.*plugins=ifcfg-rh,ibft.*/dns=none\n&/' /etc/NetworkManager/NetworkManager.conf
 ```
+
+### Find + SED: Replacing values in multiple files inside directory (in MAC)
+```
+find foldername -type f -exec grep -H 'hostname' {} \;
+find foldername -type f -name "*.yaml" -exec sed -i '' 's/hostname.local/new-hostname.local/g' {} \;
+```
+
+### Find + SED: Replacing values in multiple files inside directory (in Linux)
+```
+find foldername/*/some-other/ -type f -name "*.yaml" -exec grep -H 'hostname' {} \;
+find foldername/*/some-other/ -type f -name "*.yaml" -exec sed -i 's/hostname.local/new-hostname.local/g' {} \;
+```
+
 
 ### AWK: List of all locked accounts (accounts with passwords) :
 ```
