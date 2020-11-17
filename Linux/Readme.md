@@ -2,7 +2,6 @@
 
 #
 ## Partitions, LVM, LUKS, FS etc
-##
 
 ### Create file that will utilize space from storage
 ```
@@ -69,11 +68,10 @@ grep -vE "^#"  /etc/fstab  | awk  '{print $2}' |  uniq -d
 ```
 
 
-
-## Text manipulation with SED, AWK
 ##
+## Text manipulation with SED, AWK
+
 ### SED: Insert line at very end
-###
 ```
 # Add tmp as in-memory entry to fstab
 sed -i -e '$atmpfs /tmp tmpfs strictatime,noexec,nodev,nosuid 0 0' /etc/fstab```
