@@ -1,6 +1,11 @@
 # Useful Linux commands
 
+
+
+
 ## Partitions, LVM, LUKS, FS etc
+
+
 
 ### Create file that will utilize space from storage
 ```
@@ -66,7 +71,10 @@ Fstab entry:
 grep -vE "^#"  /etc/fstab  | awk  '{print $2}' |  uniq -d
 ```
 
+
+
 ## Text manipulation with SED, AWK
+
 
 ### SED: Insert line at very end
 
