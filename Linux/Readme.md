@@ -1,12 +1,10 @@
 # Useful Linux commands
-
-
-
-
+#
+#
 ## Partitions, LVM, LUKS, FS etc
-
-
-
+##
+##
+##
 ### Create file that will utilize space from storage
 ```
 xfs_mkfile 10240m 10Gigfile
