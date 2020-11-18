@@ -2,6 +2,7 @@
 
 #
 ## Partitions, LVM, LUKS, FS etc
+ssm guideline: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ssm-common-tasks
 
 ### Create file that will utilize space from storage
 ```
